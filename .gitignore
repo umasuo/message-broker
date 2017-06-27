@@ -48,8 +48,6 @@ Thumbs.db
 # Build output directies
 /target
 */target
-/build
-*/build
 /bin
 */bin
 classes

@@ -6,7 +6,7 @@ services:
   - git
 
 script:
-  - docker build -t message-broker:1.0 ./build
+  - docker build -t umasuo/message-broker:1.1 ./build/
 
 after_success:
 - sh ./deploy/docker_pusher.sh
