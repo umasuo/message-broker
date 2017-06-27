@@ -6,8 +6,6 @@ services:
   - git
 
 script:
-  - gradle clean
-  - gradle wrapper
   - docker build -t message-broker:1.0 ./build
 
 after_success:
