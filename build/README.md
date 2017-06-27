@@ -140,10 +140,18 @@ docker run --rm -ti --name emq -p 18083:18083 -p 1883:1883 -p 4369:4369 \
     -e EMQ_AUTH__REDIS__SERVER="your.redis.server:6379" \
     -e EMQ_AUTH__REDIS__PASSWORD="password_for_redis" \
     -e EMQ_AUTH__REDIS__PASSWORD_HASH=plain \
-    emq:latest
+    umasuo/message-broker:1.0
 
 ```
-
+docker run --rm -ti --name emq -p 18083:18083 -p 1883:1883 -p 4369:4369 --link redis:redis\
+    -e EMQ_LISTENER__TCP__EXTERNAL=1883 \
+    -e EMQ_MQTT__ALLOW_ANONYMOUS=false \
+    -e EMQ_LOADED_PLUGINS="emq_auth_redis,emq_recon,emq_modules,emq_retainer,emq_dashboard" \
+    -e EMQ_AUTH__REDIS__SERVER="redis:6379" \
+    -e EMQ_AUTH__REDIS__PASSWORD_HASH=plain \
+    umasuo/message-broker:1.0
+    
+docker run --rm -ti --name redis -p 6379:6379 redis:latest
 ### Cluster
 
 You can specify a initial cluster and join. 
