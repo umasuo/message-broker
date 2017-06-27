@@ -1,4 +1,0 @@
-jar {
-    baseName = 'message-pusher'
-    version = '0.0.1'
-}

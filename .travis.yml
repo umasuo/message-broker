@@ -1,17 +1,14 @@
 sudo: required
-language: java
-jdk: oraclejdk8
+language: erlang
+otp_release: 18.2.1
 services:
   - docker
-script:
-  - ./gradlew clean
-  - ./gradlew build
+  - git
 
 script:
   - gradle clean
   - gradle wrapper
-  - ./gradlew build buildDocker --info
+  - docker build -t message-broker:1.0 ./build
 
 after_success:
-- bash <(curl -s https://codecov.io/bash)
 - sh ./deploy/docker_pusher.sh
