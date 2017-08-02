@@ -1,6 +1,6 @@
 FROM alpine:3.5
 
-MAINTAINER Bruce Liu <liuquan89@gmail.com>
+MAINTAINER evacloud <public@evacloud.cn>
 
 ENV EMQ_VERSION=v2.2-rc.1
 
